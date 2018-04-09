@@ -10,7 +10,7 @@ CREATE TABLE `user` (
   `password`  TEXT NOT NULL,
   `email` TEXT NOT NULL,
   `first name` TEXT NOT NULL,
-  `name` TEXT NOT NULL,
+  `last name` TEXT NOT NULL,
   PRIMARY KEY (user_id),
 );
 
