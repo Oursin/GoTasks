@@ -1,0 +1,162 @@
+<head>
+  <style>
+* {box-sizing: border-box}
+/* Full-width input fields */
+  input[type=text], input[type=password], input[type=date] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus input[type=date]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and add_task buttons and add an equal width */
+.cancelbtn, .add_taskbtn {
+  float: left;
+  width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.add_task {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  background-color: rgba(71, 78, 93, 0.7);
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.add_task-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and add_task button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .add_taskbtn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+  <button onclick="document.getElementById('add_task').style.display='block'" class="add_taskbtn">Add task</button>
+  <form action="/signout" method="post">
+      <button name="foo" value="upvote" class="add_taskbtn" style="background-color: red">Log out</button>
+  </form>
+  <!-- The Modal (contains the Sign Up form) -->
+  <div id="add_task" class="add_task">
+    <span onclick="document.getElementById('add_task').style.display='none'" class="close" title="Close add_task">Close</span>
+    <form class="add_task-content" action="/user/task/add" method="post">
+      <div class="container">
+        <h1>Add task</h1>
+        <p>Please fill in this form to add task.</p>
+        <hr>
+        <label for="title"><b>Title</b></label>
+        <input type="text" placeholder="title" name="title" required>
+
+        <label for="end"><b>End</b></label><br />
+        <input title="date" type="date" name="end">
+
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('add_task').style.display='none'" class="cancelbtn" style="background-color: red">Cancel</button>
+          <button type="submit" class="add_taskbtn">Add task</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <h1>Task Index</h1>
+  <hr />
+  <div style="overflow-x:auto;">
+    <table>
+    {{range .Tasks}}
+      <tr>
+        <th><span style="font-weight:bold">ID</span> : {{.ID}}</th>
+        <th><span style="font-weight:bold">Title</span> : {{.Title}}</th>
+        <th><span style="font-weight:bold">Status</span> : {{.Status}}</th>
+        <th><span style="font-weight:bold">Begun</span> : {{.Begin}}</th>
+        <th><span style="font-weight:bold">Due to</span> : {{.End}}</th>
+      </tr>
+    {{end}}
+    </table>
+  </div>
+</body>

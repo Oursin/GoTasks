@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{.Title}} - GoTasks</title>
+  </head>
+  <body>
+    <div id="renderTask">
+      <span style="font-weight:bold">ID</span> : {{.ID}}<br />
+      <span style="font-weight:bold">Title</span> : {{.Title}}<br />
+      <span style="font-weight:bold">Status</span> : {{.Status}}<br />
+      <span style="font-weight:bold">Begun</span> : {{.Begin}}<br />
+      <span style="font-weight:bold">Due to</span> : {{.End}}<br />
+    </div>
+    <div>
+        <a href="/user/task">Back to task index</a>
+    </div>
+  </body>
+</html>
