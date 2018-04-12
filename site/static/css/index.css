@@ -134,6 +134,7 @@ button {
     overflow: auto; /* Enable scroll if needed */
     background-color: #474e5d;
     padding-top: 50px;
+    opacity: 0.8;
 }
 
 /* Modal Content/Box */
@@ -197,6 +198,7 @@ hr {
     overflow: auto; /* Enable scroll if needed */
     background-color: #474e5d;
     padding-top: 50px;
+    opacity: 0.8;
 }
 
 /* signup Content/Box */
