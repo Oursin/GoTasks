@@ -1,7 +1,7 @@
-package main
+package router
 
 import "net/http"
-import "GoTasks/handlers"
+import "GoTasks/src/handlers"
 
 type Route struct {
 	Name        string

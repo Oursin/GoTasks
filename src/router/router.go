@@ -1,13 +1,20 @@
-package main
+package router
 
 import (
-	"github.com/gorilla/mux"
+	"log"
 	"net/http"
+	"os"
+
+	"github.com/gorilla/mux"
 )
 
 const StaticDir = "/site/static/"
 
 func NewRouter() (router *mux.Router) {
+	basepath, err := os.Getwd()
+	if err != nil {
+		log.Fatal("There was an error loading current Working directory")
+	}
 	router = mux.NewRouter().StrictSlash(true)
 	for _, route := range routes {
 		var handler http.Handler
@@ -22,6 +29,6 @@ func NewRouter() (router *mux.Router) {
 	}
 	router.
 		PathPrefix(StaticDir).
-		Handler(http.StripPrefix(StaticDir, http.FileServer(http.Dir("."+StaticDir))))
+		Handler(http.StripPrefix(StaticDir, http.FileServer(http.Dir(basepath+StaticDir))))
 	return
 }
