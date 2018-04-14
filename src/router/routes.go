@@ -3,17 +3,17 @@ package router
 import "net/http"
 import "GoTasks/src/handlers"
 
-type Route struct {
+type route struct {
 	Name        string
 	Method      string
 	Pattern     string
 	HandlerFunc http.HandlerFunc
 }
 
-type Routes []Route
+type routes []route
 
-var routes = Routes{
-	Route{
+var routesIndex = routes{
+	route{
 		"Index",
 		"GET",
 		"/",
