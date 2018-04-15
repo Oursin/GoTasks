@@ -40,7 +40,8 @@ func NewRouter() (router *mux.Router) {
 			Methods(route.Method).
 			Path(route.Pattern).
 			Name(route.Name).
-			Handler(handler)
+			Handler(handler).
+			Host("tasks.oursin.eu")
 	}
 	createStaticRouter(router)
 	create404Router(router)
