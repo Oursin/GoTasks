@@ -66,10 +66,6 @@
     display: none;
   }
 }
-/* Remove body margin */
-body {
-  margin: 0;
-}
 /*Syle topnav navigation bar */
 input[type=text],
 input[type=password] {
@@ -169,5 +165,9 @@ hr {
   content: "";
   clear: both;
   display: table;
+}
+/* Remove body margin */
+body {
+  margin: 0;
 }
 /*# sourceMappingURL=index.css.map */
