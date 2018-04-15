@@ -19,4 +19,10 @@ var routesIndex = routes{
 		"/",
 		handlers.Index,
 	},
+	route{
+		"Task",
+		"GET",
+		"/task/{id}",
+		handlers.TasksHandler,
+	},
 }

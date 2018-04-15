@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{.Title}} - GoTasks</title>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+      <a href="#" class="active">Home</a>
+      <a href="#">Dashboard</a>
+      <a href="#">My Projects</a>
+      <a href="#">About</a>
+      <div class="right">
+        <a class="btn-login" onclick="document.getElementById('signin').style.display='block'">Se connecter</a>
+        <a class="btn-signup" onclick="document.getElementById('signup').style.display='block'">Créer un compte</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+    <div id="signin" class="signin">
+      <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close signin">Close</span>
+      <form class="signin-content" action="/signin" method="post">
+        <div class="container">
+          <h1>Sign In</h1>
+          <p>Please fill in this form to connect to your account.</p>
+          <hr>
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+
+          <div class="clearfix">
+            <button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn">Sign In</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="renderTask">
+      <span style="font-weight:bold">ID</span> : {{.ID}}<br />
+      <span style="font-weight:bold">Title</span> : {{.Title}}<br />
+      <span style="font-weight:bold">Status</span> : {{.Status}}<br />
+      <span style="font-weight:bold">Begun</span> : {{.Begin}}<br />
+      <span style="font-weight:bold">Due to</span> : {{.End}}<br />
+    </div>
+    <div>
+  <a href="/user/task">Back to task index</a>
+</div>
+</body>
+</html>
