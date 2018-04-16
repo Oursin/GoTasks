@@ -1,0 +1,8 @@
+#renderTask {
+  width: 80%;
+  margin: 0 10%;
+}
+a#close::before {
+  content: "\E916";
+}
+/*# sourceMappingURL=task.css.map */
